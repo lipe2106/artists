@@ -10,7 +10,7 @@ using moment3.Data;
 namespace moment3.Migrations
 {
     [DbContext(typeof(CollectionContext))]
-    [Migration("20230209103430_InitialCreate")]
+    [Migration("20230209132037_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

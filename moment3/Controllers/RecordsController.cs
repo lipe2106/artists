@@ -48,7 +48,7 @@ namespace moment3.Controllers
         // GET: Records/Create
         public IActionResult Create()
         {
-            ViewData["ArtistId"] = new SelectList(_context.Artists, "Id", "Id");
+            ViewData["ArtistId"] = new SelectList(_context.Artists, "Id", "Name");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace moment3.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArtistId"] = new SelectList(_context.Artists, "Id", "Id", @record.ArtistId);
+            ViewData["ArtistId"] = new SelectList(_context.Artists, "Id", "Name", @record.ArtistId);
             return View(@record);
         }
 
@@ -82,7 +82,7 @@ namespace moment3.Controllers
             {
                 return NotFound();
             }
-            ViewData["ArtistId"] = new SelectList(_context.Artists, "Id", "Id", @record.ArtistId);
+            ViewData["ArtistId"] = new SelectList(_context.Artists, "Id", "Name", @record.ArtistId);
             return View(@record);
         }
 
@@ -118,7 +118,7 @@ namespace moment3.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArtistId"] = new SelectList(_context.Artists, "Id", "Id", @record.ArtistId);
+            ViewData["ArtistId"] = new SelectList(_context.Artists, "Id", "Name", @record.ArtistId);
             return View(@record);
         }
 
