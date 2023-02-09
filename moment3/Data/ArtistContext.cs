@@ -12,5 +12,6 @@ namespace moment3.Data
 
         // Link Context to Artist model and add name to database table
         public DbSet<Artist> Artist { get; set; }
+        public DbSet<Record> Record { get; set; }
     }
 }
