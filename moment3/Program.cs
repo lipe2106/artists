@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // Db connections
-builder.Services.AddDbContext<ArtistContext>(options =>
+builder.Services.AddDbContext<CollectionContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultDbString")));
 
 

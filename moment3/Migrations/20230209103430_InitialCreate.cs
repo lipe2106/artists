@@ -5,13 +5,26 @@
 namespace moment3.Migrations
 {
     /// <inheritdoc />
-    public partial class Relationships : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Record",
+                name: "Artists",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Artists", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Records",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -22,18 +35,18 @@ namespace moment3.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Record", x => x.Id);
+                    table.PrimaryKey("PK_Records", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Record_Artist_ArtistId",
+                        name: "FK_Records_Artists_ArtistId",
                         column: x => x.ArtistId,
-                        principalTable: "Artist",
+                        principalTable: "Artists",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Record_ArtistId",
-                table: "Record",
+                name: "IX_Records_ArtistId",
+                table: "Records",
                 column: "ArtistId");
         }
 
@@ -41,7 +54,10 @@ namespace moment3.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Record");
+                name: "Records");
+
+            migrationBuilder.DropTable(
+                name: "Artists");
         }
     }
 }
