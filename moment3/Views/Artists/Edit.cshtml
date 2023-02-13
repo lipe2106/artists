@@ -1,10 +1,10 @@
 ﻿@model moment3.Models.Artist
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Redigera";
 }
 
-<h1>Edit</h1>
+<h1>Redigera</h1>
 
 <h4>Artist</h4>
 <hr />
@@ -18,15 +18,16 @@
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Ändra" class="btn btn-primary btn-sm border border-dark" />
             </div>
         </form>
     </div>
 </div>
-
+<br />
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Till artistöversikt</a>
 </div>
 
 @section Scripts {
