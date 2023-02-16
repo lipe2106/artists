@@ -12,7 +12,7 @@ namespace moment3.Models
         public string? Name { get; set; }
 
         // Relationship with record
-        public List<Record> Record { get; set; }
+        public List<Record>? Record { get; set; }
     }
 
     public class Record
